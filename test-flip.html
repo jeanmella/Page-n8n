@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Flip Cards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        .test-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .service-card-flip {
+            perspective: 1000px;
+            height: 400px;
+        }
+
+        .service-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .service-card-flip:hover .service-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .service-card-front,
+        .service-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .service-card-front {
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .service-card-back {
+            background: #22C55E;
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-size: 24px;
+        }
+
+        .info {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test-container">
+        <div class="service-card-flip">
+            <div class="service-card-inner">
+                <div class="service-card-front">
+                    FRENTE
+                </div>
+                <div class="service-card-back">
+                    ATRÁS
+                </div>
+            </div>
+        </div>
+        <p class="info">Pasa el mouse sobre la card para voltearla</p>
+    </div>
+</body>
+
+</html>
